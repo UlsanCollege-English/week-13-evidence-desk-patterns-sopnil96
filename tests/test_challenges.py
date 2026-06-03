@@ -133,14 +133,12 @@ def test_lookup_alias_handles_empty_dictionary() -> None:
 # Optional Challenge 1: process_reports
 # -----------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Optional challenge: remove this skip to check it.")
 def test_process_reports_returns_reports_in_arrival_order() -> None:
     reports = ["burglary", "traffic stop", "missing wallet", "noise complaint"]
 
     assert process_reports(reports) == reports
 
 
-@pytest.mark.skip(reason="Optional challenge: remove this skip to check it.")
 def test_process_reports_handles_empty_list() -> None:
     assert process_reports([]) == []
 
@@ -149,18 +147,15 @@ def test_process_reports_handles_empty_list() -> None:
 # Optional Challenge 2: largest_time_gap
 # -----------------------------------------------------------------------------
 
-@pytest.mark.skip(reason="Optional challenge: remove this skip to check it.")
 def test_largest_time_gap_sorts_and_finds_largest_neighbor_gap() -> None:
     assert largest_time_gap([1300, 915, 1600, 945]) == 355
 
 
-@pytest.mark.skip(reason="Optional challenge: remove this skip to check it.")
 def test_largest_time_gap_handles_short_lists() -> None:
     assert largest_time_gap([]) == 0
     assert largest_time_gap([1200]) == 0
 
 
-@pytest.mark.skip(reason="Optional challenge: remove this skip to check it.")
 def test_largest_time_gap_does_not_mutate_input() -> None:
     times = [1300, 915, 1600, 945]
 

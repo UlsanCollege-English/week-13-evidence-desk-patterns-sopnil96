@@ -3,18 +3,11 @@
 
 ## Student Name
 
-Write your name here.
+Sopnil
 
 ## Summary
 
-Write 3–6 lines describing what this homework asks you to practice.
-
-Example topics:
-
-- frequency counting with dictionaries
-- duplicate detection with sets
-- stack matching with lists
-- lookup tables with dictionaries
+This homework asks you to practice core data structure patterns in Python by solving problems set in a detective/evidence desk theme. You will use frequency counting with dictionaries to tally evidence labels, duplicate detection with sets to find repeated suspect IDs, stack matching with a list to validate nested bracket tags, and lookup tables with dictionaries to resolve criminal aliases. Two optional challenges extend the practice to queue processing with `collections.deque` and a sorting-plus-scan pattern to find the largest time gap between events.
 
 ## How to Run Tests
 
@@ -56,31 +49,31 @@ Optional tests are skipped by default. To run them, remove the `@pytest.mark.ski
 
 ### Pattern
 
-Write the pattern name here.
+Frequency counting
 
 ### Data Structure
 
-Write the data structure here.
+Dictionary (`dict`)
 
 ### Approach
 
-- Step 1:
-- Step 2:
-- Step 3:
+- Step 1: Create an empty dictionary to store label counts.
+- Step 2: Loop through each item in the evidence list.
+- Step 3: If the item is already a key, increment its count by 1; otherwise set it to 1. Return the dictionary.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(n)`
+- Space: `O(k)`
 
-Explain briefly:
+`n` is the number of items in the list. We visit each item once, so time is linear. `k` is the number of unique labels; in the worst case `k = n`, so space is also linear.
 
 ### Edge Cases Checked
 
-- [ ] Empty list
-- [ ] One item
-- [ ] Repeated items
-- [ ] Different labels
+- [x] Empty list
+- [x] One item
+- [x] Repeated items
+- [x] Different labels
 
 ---
 
@@ -88,31 +81,31 @@ Explain briefly:
 
 ### Pattern
 
-Write the pattern name here.
+Seen-before detection
 
 ### Data Structure
 
-Write the data structure here.
+Set (`set`)
 
 ### Approach
 
-- Step 1:
-- Step 2:
-- Step 3:
+- Step 1: Create an empty set called `seen`.
+- Step 2: Loop through each ID in the list.
+- Step 3: If the ID is already in `seen`, return it immediately; otherwise add it to `seen`. Return `None` after the loop if no repeat was found.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(n)`
+- Space: `O(n)`
 
-Explain briefly:
+Set membership checks are O(1) on average, so the loop runs in O(n) total. In the worst case (no repeats) the set holds all `n` IDs.
 
 ### Edge Cases Checked
 
-- [ ] Empty list
-- [ ] No repeated IDs
-- [ ] First two IDs match
-- [ ] Multiple repeated IDs
+- [x] Empty list
+- [x] No repeated IDs
+- [x] First two IDs match
+- [x] Multiple repeated IDs
 
 ---
 
@@ -120,33 +113,33 @@ Explain briefly:
 
 ### Pattern
 
-Write the pattern name here.
+Stack matching
 
 ### Data Structure
 
-Write the data structure here.
+List used as a stack (`list`)
 
 ### Approach
 
-- Step 1:
-- Step 2:
-- Step 3:
+- Step 1: Create an empty stack and a dictionary that maps each closing bracket to its matching opening bracket.
+- Step 2: Loop through each character; push opening brackets onto the stack. For closing brackets, check that the top of the stack holds the correct opener — return `False` immediately if not, otherwise pop the stack.
+- Step 3: After the loop, return `True` only if the stack is empty (every opener was closed).
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(n)`
+- Space: `O(n)`
 
-Explain briefly:
+Each character is visited once. In the worst case (all opening brackets) the stack holds `n` items.
 
 ### Edge Cases Checked
 
-- [ ] Empty string
-- [ ] Correctly nested tags
-- [ ] Mismatched tags
-- [ ] Closing tag before opening tag
-- [ ] Unclosed opening tag
-- [ ] Non-bracket characters
+- [x] Empty string
+- [x] Correctly nested tags
+- [x] Mismatched tags
+- [x] Closing tag before opening tag
+- [x] Unclosed opening tag
+- [x] Non-bracket characters
 
 ---
 
@@ -154,29 +147,29 @@ Explain briefly:
 
 ### Pattern
 
-Write the pattern name here.
+Lookup table
 
 ### Data Structure
 
-Write the data structure here.
+Dictionary (`dict`)
 
 ### Approach
 
-- Step 1:
-- Step 2:
+- Step 1: Use `dict.get(alias, None)` to look up the alias key in the dictionary.
+- Step 2: Return the value if it exists, or `None` if it does not.
 
 ### Complexity
 
-- Time: `O(?)`
-- Space: `O(?)`
+- Time: `O(1)`
+- Space: `O(1)`
 
-Explain briefly:
+Dictionary lookup is O(1) on average. No extra space is used beyond the input dictionary.
 
 ### Edge Cases Checked
 
-- [ ] Known alias
-- [ ] Unknown alias
-- [ ] Empty dictionary
+- [x] Known alias
+- [x] Unknown alias
+- [x] Empty dictionary
 
 ---
 
@@ -184,17 +177,15 @@ Explain briefly:
 
 ## AI Used?
 
-- [ ] Yes
+- [x] Yes
 - [ ] No
 
 ## If yes, what did AI help with?
 
-Write 1–3 bullets.
-
--
--
--
+- Helped structure the step-by-step approach for each problem following the TODO comments.
+- Explained the time and space complexity for each solution.
+- Assisted with writing the README documentation.
 
 ## Other Sources
 
-List any non-course sources you used. If none, write `None`.
+None.
