@@ -1,4 +1,3 @@
-from __future__ import annotations
 """Week 1 Homework: Evidence Desk Patterns.
 
 Complete each function using the data structure pattern named in the docstring.
@@ -10,6 +9,7 @@ Rules:
 - Run tests with: pytest -q
 """
 
+from __future__ import annotations
 from collections import deque
 
 
@@ -36,16 +36,12 @@ def count_evidence(evidence: list[str]) -> dict[str, int]:
         A dictionary where each key is an evidence label and each value is the
         number of times that label appears.
     """
-    # Create an empty dictionary.
     counts = {}
-    # Loop through evidence.
     for item in evidence:
-        # Update the count for each item.
         if item in counts:
             counts[item] += 1
         else:
             counts[item] = 1
-    # Return the dictionary.
     return counts
 
 
@@ -71,16 +67,11 @@ def first_repeated_id(ids: list[str]) -> str | None:
     Returns:
         The first ID that appears again, or None if there are no repeats.
     """
-    # Create an empty set named seen.
     seen = set()
-    # Loop through ids.
     for id in ids:
-        # If the current ID is already in seen, return it.
         if id in seen:
             return id
-        # Otherwise, add it to seen.
         seen.add(id)
-    # Return None if no repeated ID is found.
     return None
 
 
@@ -111,20 +102,15 @@ def valid_tags(tags: str) -> bool:
     Returns:
         True if brackets are balanced correctly, otherwise False.
     """
-    # Create an empty stack.
     stack = []
-    # Create a dictionary of closing brackets to opening brackets.
     matching = {')': '(', ']': '[', '}': '{'}
     for char in tags:
-        # Push opening brackets onto the stack.
         if char in '([{':
             stack.append(char)
-        # For closing brackets, check whether the stack top matches.
         elif char in ')]}':
             if not stack or stack[-1] != matching[char]:
                 return False
             stack.pop()
-    # Return True only if the stack is empty at the end.
     return len(stack) == 0
 
 
@@ -152,8 +138,6 @@ def lookup_alias(aliases: dict[str, str], alias: str) -> str | None:
     Returns:
         The real name if the alias exists, otherwise None.
     """
-    # Return the matching real name if the alias exists.
-    # Return None if the alias is not in the dictionary.
     return aliases.get(alias, None)
 
 
@@ -177,13 +161,10 @@ def process_reports(reports: list[str]) -> list[str]:
     Returns:
         A list of report labels in the order they were processed.
     """
-    # Create a deque from reports.
     queue = deque(reports)
     processed = []
-    # Repeatedly popleft from the queue and append to processed.
     while queue:
         processed.append(queue.popleft())
-    # Return processed.
     return processed
 
 
@@ -210,12 +191,9 @@ def largest_time_gap(times: list[int]) -> int:
         The largest difference between neighboring sorted times. Return 0 if
         there are fewer than two times.
     """
-    # Return 0 when there are fewer than two times.
     if len(times) < 2:
         return 0
-    # Sort the times without changing the input list.
     sorted_times = sorted(times)
-    # Scan neighboring pairs and track the largest gap.
     largest = 0
     for i in range(len(sorted_times) - 1):
         gap = sorted_times[i + 1] - sorted_times[i]
